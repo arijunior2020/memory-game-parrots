@@ -1,0 +1,153 @@
+/* Estilos globais */
+body {
+    background: #EEF9BF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Título */
+.titulo {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    color: #75B79E;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Contêiner das cartas */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 900px; 
+}
+
+/* Caixa das cartas */
+.box-outside {
+    perspective: 1000px;
+    width: 117px;
+    height: 146px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Animação ao virar as cartas */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.box-outside.virada .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Frente e verso das cartas */
+.card-front, .card-back {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #A7E9AF;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    display: flex;
+    background-color: #A7E9AF;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste da caixa onde o papagaio estará */
+.box-parrots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #A7E9AF;
+    overflow: hidden;
+}
+
+.box-parrots img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100px;
+}
+
+/* Estilos para telas menores */
+@media screen and (max-width: 1024px) {
+    .titulo {
+        font-size: 50px;
+        line-height: 1.2;
+    }
+
+    .row {
+        justify-content: center;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .box-outside {
+        margin-bottom: 15px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .titulo {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .row {
+        justify-content: center;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .box-outside {
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .titulo {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .row {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .box-outside img {
+        width: 80px;
+        height: 80px;
+    }
+}
